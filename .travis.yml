@@ -1,0 +1,14 @@
+language: java
+jdk:
+  - oraclejdk8
+sudo: true
+install: true
+services: 
+  - docker
+before_install:
+  - docker build -t njetty/alpine-mongo .
+script:
+  - docker run -d --name mongo -p 27017:27017 njetty/alpine-mongo
+after_success:
+  - docker login - u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push njetty/alpine-mongo
