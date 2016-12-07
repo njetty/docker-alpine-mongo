@@ -1,4 +1,5 @@
 # docker-alpine-mongo
+This is a fork from mvertes
 
 This repository contains Dockerfile for [MongoDB 3.2](https://www.mongodb.org)
 container, based on the [Alpine edge](https://hub.docker.com/_/alpine/) image.
@@ -11,24 +12,24 @@ As a prerequisite, you need [Docker](https://docker.com) to be installed.
 
 To download this image from the public docker hub:
 
-	$ docker pull mvertes/alpine-mongo
+	$ docker pull njetty/alpine-mongo
 
 To re-build this image from the dockerfile:
 
-	$ docker build -t mvertes/alpine-mongo .
+	$ docker build -t njetty/alpine-mongo .
 
 ## Usage
 
 To run `mongod`:
 
-	$ docker run -d --name mongo -p 27017:27017 mvertes/alpine-mongo
+	$ docker run -d --name mongo -p 27017:27017 njetty/alpine-mongo
 
 You can also specify the database repository where to store the data
 with the volume -v option:
 
     $ docker run -d --name mongo -p 27017:27017 \
 	  -v /somewhere/onmyhost/mydatabase:/data/db \
-	  mvertes/alpine-mongo
+	  njetty/alpine-mongo
 
 To run a shell session:
 
