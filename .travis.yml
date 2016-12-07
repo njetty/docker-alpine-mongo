@@ -10,5 +10,5 @@ before_install:
 script:
   - docker run -d --name mongo -p 27017:27017 njetty/alpine-mongo
 after_success:
-  - docker login - u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push njetty/alpine-mongo
